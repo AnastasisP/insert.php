@@ -1,0 +1,2 @@
+$sql="SELECT SCH_ID, SCH_NAME,SCH_LONG,SCH_LAT FROM schools ";
+$result = $conn->query($sql);
