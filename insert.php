@@ -10,15 +10,17 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
+//
 if (isset($_GET["sch_id"])){
     $sch_id=$_GET["sch_id"];
    /echo $sch_id . "</p>";
-    
+}
+if (isset($_GET["sch_name"])){
+    $sch_name=$_GET["sch_name"];
+   /echo $sch_name . "</p>";
 }
 
-
-$sql = "SELECT sch_id, sch_name, sch_long, sch_lat FROM schools WHERE sch_id LIKE `$sch_id`  ";
+$sql = "SELECT sch_id, sch_name, sch_long, sch_lat FROM schools WHERE sch_id LIKE `$sch_id` AND sch_name LIKE `$sch_name` ";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
